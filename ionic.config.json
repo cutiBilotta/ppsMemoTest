@@ -1,0 +1,7 @@
+{
+  "name": "ppsMemoTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
