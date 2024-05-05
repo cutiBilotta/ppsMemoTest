@@ -1,0 +1,21 @@
+img{
+
+    height: 100px;
+    width:100px;
+    background-color: antiquewhite;
+    border-radius: 10%;
+    border: rgb(50, 151, 50) 2px solid;
+    padding: 10px;
+}
+
+.img-tapada {
+    opacity: 1; /* Hace que la imagen esté semitransparente */
+    filter: grayscale(100%); /* Convierte la imagen a escala de grises */
+    /* Puedes añadir más estilos para que se vea como el dorso de una carta */
+  }
+  
+  .img-destapada {
+    opacity: 1; /* Muestra la imagen con total opacidad */
+    filter: none; /* Elimina el filtro de escala de grises */
+    /* Puedes añadir más estilos para mostrar la imagen completa */
+  }

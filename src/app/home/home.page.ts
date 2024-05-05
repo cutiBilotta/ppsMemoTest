@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+
+  constructor(private router: Router) {}
+
+
+  seleccionarDificultad(seleccion :string){
+
+
+
+      const navigationExtras: NavigationExtras = {
+        queryParams: { dato: seleccion }
+      };
+      this.router.navigate(['/juego'], navigationExtras);
+    
+
+  }
 
 }

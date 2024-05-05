@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="container" class="ion-text-center">
+    <br><br>
+    <h2>Elige la dificultad:</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <br>
+
+    <div class="ion-margin-top">
+      <ion-button (click)="seleccionarDificultad('facil')" shape="round" >
+        <img src="../../assets/img/facil.png" alt="" height="100px" style="padding:5px">
+        <p>Facil</p>
+      </ion-button>
+    </div>
+
+    <br>
+    <div class="ion-margin-top">
+      <ion-button (click)="seleccionarDificultad('medio')" shape="round">
+        <img src="../../assets/img/medio.png" alt="" height="100px" style="padding:5px">
+        <p>Medio</p>
+      </ion-button>
+    </div>
+
+    <br>
+    <div class="ion-margin-top">
+      <ion-button (click)="seleccionarDificultad('dificil')" shape="round">
+        <img src="../../assets/img/dificil.png" alt="" height="100px" style="padding:5px">
+        <p>Dificil</p>
+      </ion-button>
+    </div>
   </div>
 </ion-content>
