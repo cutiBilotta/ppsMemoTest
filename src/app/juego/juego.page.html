@@ -1,19 +1,19 @@
 
 <ion-content [fullscreen]="true">
 
-  <div id="container">
+  <div id="container" class="ion-text-center ion-text-uppercase">
+    <br><br><br><br><br>
+    <h1>{{dificultad}}</h1>
+    <ion-text color="danger"  class="text-center"><h2 >Tiempo - {{minutos}} : {{segundos}}</h2></ion-text>
 
-    <h1>Dificultad : {{this.dificultad}}</h1>
-    <h2>{{this.seleccionRonda}}</h2>
-    <div *ngFor="let imagen of arrayImagenes">
-      <img [src]="'../../assets/img/' + this.dificultad + '/' + imagen + '.png'" 
-           alt="Imagen" 
-           height="100px" 
-           [class.img-tapada]="imagen !== this.primeraImagen && imagen !== this.segundaImagen"
-           [class.img-destapada]="imagen === this.primeraImagen || imagen === this.segundaImagen"
-           (click)="!bloquearImagen[imagen] && seleccionarImagen(imagen)">
+    <div class="image-container" [ngClass]="{'media-six-images': arrayImagenes.length === 6, 'media-sixteen-images': arrayImagenes.length === 16}">
+      <div *ngFor="let imagen of arrayImagenes; let i = index" class="image-wrapper">
+        <img [src]="'../../assets/img/q.png'"
+             alt="Imagen" 
+             height="100px"
+             (click)="seleccionarImagen(imagen, i)" #imagenElemento>
+      </div>
     </div>
-
 
   </div>
 

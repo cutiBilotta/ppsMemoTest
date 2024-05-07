@@ -1,21 +1,69 @@
-img{
+#img{
 
-    height: 100px;
-    width:100px;
+    height: 120px;
+    width:120px;
     background-color: antiquewhite;
     border-radius: 10%;
     border: rgb(50, 151, 50) 2px solid;
-    padding: 10px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
 }
 
-.img-tapada {
-    opacity: 1; /* Hace que la imagen esté semitransparente */
-    filter: grayscale(100%); /* Convierte la imagen a escala de grises */
-    /* Puedes añadir más estilos para que se vea como el dorso de una carta */
-  }
-  
-  .img-destapada {
-    opacity: 1; /* Muestra la imagen con total opacidad */
-    filter: none; /* Elimina el filtro de escala de grises */
-    /* Puedes añadir más estilos para mostrar la imagen completa */
-  }
+img{
+  padding: 5px;
+  background-color: antiquewhite;
+  border-radius: 10%;
+}
+
+*{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+#container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/img/kids.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Opacidad aplicada solo a la imagen de fondo */
+  z-index: -1;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-wrapper {
+  flex-basis: 25%; /* Por defecto, cada elemento ocupa el 25% del contenedor */
+  max-width: 25%; /* Establece un ancho máximo para evitar que las imágenes se estiren */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Para el caso de 6 imágenes */
+.media-six-images .image-wrapper {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+/* Para el caso de 16 imágenes */
+.media-sixteen-images .image-wrapper {
+  flex-basis: 25%;
+  max-width: 25%;
+}

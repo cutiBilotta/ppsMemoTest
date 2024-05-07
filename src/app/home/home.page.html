@@ -2,30 +2,43 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="ion-text-center">
-    <br><br>
+
+    <br>
+    <div style="display: flex; align-items: center; justify-content: space-between; background-color: #f99da0;">
+      <div style="display: flex; align-items: center;">
+         <!-- <img id="icono" src="../../assets/img/building.png" > -->
+         <ion-text color="dark" style="margin: 0; font-size: large; margin-left: 10px; font-weight: 800;" >Bienvenido/a, {{userEmail}}</ion-text>
+      </div>
+      <ion-button (click)="cerrarSesion()" shape="round" size="small" color="danger" style="margin-right: 20px; margin-right: 2px;"><img src="../../assets/img/logOff.png" height="20px"></ion-button>
+  </div>
+
+
+  <br><br><br>
+  <img src="../../assets/img/memotest.png" height="80px" alt="">
+    <br>
+
     <h2>Elige la dificultad:</h2>
 
     <br>
-
-    <div class="ion-margin-top">
-      <ion-button (click)="seleccionarDificultad('facil')" shape="round" >
-        <img src="../../assets/img/facil.png" alt="" height="100px" style="padding:5px">
+    <div >
+      <ion-button (click)="seleccionarDificultad('facil')" shape="round" style="--background: rgb(223, 213, 240);">
+        <img src="../../assets/img/facil.png" alt="" height="80px" style="padding:5px">
         <p>Facil</p>
       </ion-button>
     </div>
 
     <br>
-    <div class="ion-margin-top">
-      <ion-button (click)="seleccionarDificultad('medio')" shape="round">
-        <img src="../../assets/img/medio.png" alt="" height="100px" style="padding:5px">
+    <div>
+      <ion-button (click)="seleccionarDificultad('medio')" shape="round" style="--background: rgb(206, 180, 248);">
+        <img src="../../assets/img/medio.png" alt="" height="80px" style="padding:5px">
         <p>Medio</p>
       </ion-button>
     </div>
 
     <br>
-    <div class="ion-margin-top">
-      <ion-button (click)="seleccionarDificultad('dificil')" shape="round">
-        <img src="../../assets/img/dificil.png" alt="" height="100px" style="padding:5px">
+    <div>
+      <ion-button (click)="seleccionarDificultad('dificil')" shape="round" style="--background: rgb(167, 138, 212);">
+        <img src="../../assets/img/dificil.png" alt="" height="80px" style="padding:5px">
         <p>Dificil</p>
       </ion-button>
     </div>
