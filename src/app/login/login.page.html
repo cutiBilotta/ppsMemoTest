@@ -17,28 +17,43 @@
     <ion-card-content>
      <ion-item>
        <ion-label>Email: </ion-label>
-       <ion-input type="email" [(ngModel)]="usuario.correo" name="email"></ion-input>
+       <ion-input type="email" [(ngModel)]="usuario.correo" name="email" style="font-weight: bold;" > </ion-input>
      </ion-item>
      
      <br> 
      
      <ion-item>
        <ion-label>Password: </ion-label>
-       <ion-input type="password" [(ngModel)]="usuario.password" name="password"></ion-input>
+       <ion-input type="password" [(ngModel)]="usuario.password" name="password" style="font-weight: bold;"></ion-input>
      </ion-item>
      
    <br> 
      <div class="ion-align-items-center ion-text-center">
        <ion-button color="success" block (click)="verificarUsuarioExistente()">Ingresar</ion-button>
        <br>  
+
+       <p>como: </p>
  
+       <div class="ion-align-items-center ion-text-center">
+        <ion-button style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio1()">Admin</ion-button>
+        <br>  
+      </div>
+    
+      <div class="ion-align-items-center ion-text-center">
+        <ion-button style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio2()">Invitado</ion-button>
+        <br>  
+      </div>
+    
+      <div class="ion-align-items-center ion-text-center">
+        <ion-button class="ion-button-small" style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio3()">Usuario</ion-button>
+        <br>  
+      </div>
  
        <div *ngIf="mensaje">
            {{mensaje}}
        </div>
-     </div>
  
- 
+      </div>
    </ion-card-content>
  </ion-card>
 
@@ -47,32 +62,6 @@
 </div>
  <br>
  
- <ion-card style="background-color: #cac8c8;">
-   <ion-card-header class="ion-text-center ion-text-bold">
-     Ingreso Rápido
-   </ion-card-header>
- 
-   <div class="ion-align-items-center ion-text-center">
-     <ion-button color="primary" block (click)="autocompletarUsurio1()">Admin</ion-button>
-     <br>  
-   </div>
- 
-   <div class="ion-align-items-center ion-text-center">
-     <ion-button color="primary" block (click)="autocompletarUsurio2()">Invitado</ion-button>
-     <br>  
-   </div>
- 
-   <div class="ion-align-items-center ion-text-center">
-     <ion-button class="ion-button-small" color="primary" block (click)="autocompletarUsurio3()">Usuario</ion-button>
-     <br>  
-   </div>
- 
-   <br>
- 
- 
- 
- 
- </ion-card>
  
 </div>
  </ion-content>

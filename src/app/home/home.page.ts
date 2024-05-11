@@ -41,4 +41,8 @@ export class HomePage implements OnInit  {
 
   }
 
+  verEstadisticas(){
+    this.router.navigateByUrl('estadisticas');
+  }
+
 }

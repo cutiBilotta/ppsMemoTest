@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
-
+import { DatabaseService } from '../service/database.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-juego',
@@ -12,7 +13,7 @@ export class JuegoPage implements OnInit {
 
   @ViewChildren('imagenElemento') imagenElementos!: QueryList<ElementRef>;
  
-  constructor(private router: ActivatedRoute, public route : Router) {}
+  constructor(private router: ActivatedRoute, public route : Router, public database : DatabaseService, private afAuth : AngularFireAuth) {}
 
   public dificultad : string ="";
   public arrayImagenes: string[] = [];
@@ -25,11 +26,13 @@ export class JuegoPage implements OnInit {
   private cronometro:any;
   public primeraImagen :string = "";
   public segundaImagen :string = "";
+  bloquearImagen: boolean = false;
 
   public segundos = 0;
   public minutos = 0;
   public indiceAnterior : number=-1;
   elementosImg: HTMLImageElement[] = [];
+  private userEmail:string | null = "";
 
 
 
@@ -39,6 +42,16 @@ export class JuegoPage implements OnInit {
     });
 
     this.seleccionarImagenesAleatorias();
+
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userEmail = user.email;
+      } else {
+        console.log("null");
+      }
+    });
+
+
   }
 
   ngAfterViewInit() {
@@ -121,27 +134,33 @@ export class JuegoPage implements OnInit {
   seleccionarImagen(nombreImagen: string, indice: number) {
     this.seleccionRonda++;
 
-    this.elementosImg[indice].src = `../../assets/img/${this.dificultad}/${nombreImagen}.png`, innerHeight=100 , innerWidth=100 ;
+    this.elementosImg[indice].src = `../../assets/img/${this.dificultad}/${nombreImagen}.png`;
 
     if (this.seleccionRonda === 1) {
         this.primeraImagen = nombreImagen;
         this.indiceAnterior = indice;
     } else if (this.seleccionRonda === 2) {
+        this.bloquearImagen = true;
         this.segundaImagen = nombreImagen;
 
         if (this.primeraImagen === this.segundaImagen) {
             console.log("acertaste");
-            this.paresAcertados ++;
+            this.paresAcertados++;
+            this.bloquearImagen = false;
+
         } else {
             setTimeout(() => {
                 this.elementosImg[indice].src = `../../assets/img/q.png`;
                 this.elementosImg[this.indiceAnterior].src = `../../assets/img/q.png`;
                 console.log("perdiste! siguiente ronda");
-            }, 1000); // 2000 milisegundos = 2 segundos
-        }
 
+                // Desbloquear todas las imágenes después de que termine el setTimeout
+                this.bloquearImagen = false;
+            }, 1000); // 1000 milisegundos = 1 segundo
+        }
         this.seleccionRonda = 0;
     }
+
 
     if(this.paresAcertados== this.arrayImagenes.length/2){
 
@@ -157,6 +176,12 @@ export class JuegoPage implements OnInit {
         }
       });
 
+      let fecha = new Date();
+
+      let desdeStr = `${('0'+fecha.getDate()).slice(-2)}-${('0'+(fecha.getMonth()+1)).slice(-2)}-${fecha.getFullYear()}`;
+      const jugador =  { correo : this.userEmail, tiempo : this.minutos + ":" + this.segundos , desdeStr , dificultad: this.dificultad }
+
+      this.database.crear('mejores-jugadores', jugador );
     }
 }
 

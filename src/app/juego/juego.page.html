@@ -11,7 +11,8 @@
         <img [src]="'../../assets/img/q.png'"
              alt="Imagen" 
              height="100px"
-             (click)="seleccionarImagen(imagen, i)" #imagenElemento>
+             (click)="seleccionarImagen(imagen, i)" #imagenElemento
+             [style.pointer-events]="bloquearImagen ? 'none' : 'auto'">
       </div>
     </div>
 
