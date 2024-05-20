@@ -1,13 +1,19 @@
-<ion-content class="splash-content">
-  <div class="splash-background ion-text-center">
-    <h2  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #383636; margin-top: 40%;">Agustina Bilotta</h2>
-    <h3  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  color: #383636;">4° A</h3>
-    <h1  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color:black">Memo Test</h1>
-    
-    <br>
-    <div class="centrado">
-      <ion-img src="../../assets/img/memotest.png" class="app-icon animacion-rebote"></ion-img>
+<ion-content>
+  <!-- Initial white background with the app icon -->
+  <div class="initial-splash" [ngClass]="{'hidden': !showInitialSplash}">
+    <img src="../../assets/img/memotest.png" class="initial-icon" alt="App Icon">
+  </div>
+
+  <!-- Main content with animations -->
+  <div class="main-content" [ngClass]="{'hidden': showInitialSplash, 'fade-in': isFadedIn}">
+    <div class="splash-background ion-text-center">
+      <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #383636;">Agustina Bilotta</h2>
+      <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #383636;">4° A</h3>
+      <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: black">Memo Test</h1>
+      <br>
+      <div class="centrado">
+        <ion-img src="../../assets/img/memotest.png" class="app-icon animacion-rebote"></ion-img>
+      </div>
     </div>
-   
   </div>
 </ion-content>

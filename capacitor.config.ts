@@ -1,9 +1,11 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.ppsMemoTest.app',
   appName: 'ppsMemoTest',
-  webDir: 'www'
+  webDir: 'www',
+
+
 };
 
 export default config;

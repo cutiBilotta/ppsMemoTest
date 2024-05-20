@@ -68,18 +68,18 @@ export class LoginPage implements OnInit {
   }
 
 
-  autocompletarUsurio1(){
+  autocompletarUsuario1(){
 
     this.usuario.correo = "admin@admin.com";
     this.usuario.password = "111111";
 
   }
-  autocompletarUsurio2(){
+  autocompletarUsuario2(){
 
     this.usuario.correo = "invitado@invitado.com";
     this.usuario.password = "222222";
   }
-  autocompletarUsurio3(){
+  autocompletarUsuario3(){
 
     this.usuario.correo = "usuario@usuario.com";
     this.usuario.password = "333333";

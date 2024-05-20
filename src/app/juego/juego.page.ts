@@ -34,6 +34,8 @@ export class JuegoPage implements OnInit {
   elementosImg: HTMLImageElement[] = [];
   private userEmail:string | null = "";
 
+  colSize: string="";
+  colHeight: string="";
 
 
   ngOnInit() {
@@ -51,7 +53,29 @@ export class JuegoPage implements OnInit {
       }
     });
 
+    this.updateLayout();
 
+
+  }
+
+  updateLayout() {
+    switch (this.dificultad) {
+      case 'facil':
+        this.colSize = '6';
+        this.colHeight = '25vh';
+        break;
+      case 'medio':
+        this.colSize = '6';
+        this.colHeight = '15vh';
+        break;
+      case 'dificil':
+        this.colSize = '3';
+        this.colHeight = '15vh';
+        break;
+      default:
+        this.colSize = '3';
+        this.colHeight = '15vh';
+    }
   }
 
   ngAfterViewInit() {
@@ -183,6 +207,33 @@ export class JuegoPage implements OnInit {
 
       this.database.crear('mejores-jugadores', jugador );
     }
+}
+generateRows(array: any[]): any[][] {
+  const rows = [];
+  for (let i = 0; i < array.length; i += 6) {
+    rows.push(array.slice(i, i + 6));
+  }
+  return rows;
+}
+
+abandonar(){
+  clearInterval(this.cronometro);
+
+  Swal.fire({
+    title: "Has abandonado el juego!",
+    imageUrl: "../../assets/img/medio.png",
+    imageWidth: 130,
+    imageHeight: 100,
+    heightAuto: false,
+    confirmButtonText: "Ir al Home!",
+    confirmButtonColor: 'var(--ion-color-primary)',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.route.navigateByUrl('home');
+    }
+  });
+
+  
 }
 
   

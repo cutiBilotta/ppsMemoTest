@@ -1,30 +1,80 @@
-
 <ion-content [fullscreen]="true">
-  <div class="container ion-text-center" >
+  <div class="container ion-text-center">
     <br><br>
-    <h1>Mejores Jugadores</h1> <br>
-    <div *ngFor=" let jugador of listaMejoresJugadores; let i = index" class="ion-text-center">
+    <h1>Mejores Jugadores</h1>
+    <br>
 
-      <ion-card style="background-color: rgb(228, 251, 202);">
-        <ion-card-header>
-          <ion-card-title>★ Puesto {{i+1}} ★</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          jugador: {{jugador.correo}} <br>
-          tiempo: {{jugador.tiempo }} <br>
-          fecha: {{jugador.desdeStr}} <br>
-        </ion-card-content>
-      </ion-card>
+    <ion-card style="background-color: rgb(255, 212, 110);">
+      <ion-card-header>
+        <ion-card-title>Categoria Dificil</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" *ngFor="let jugador of listaMejoresJugadoresDificil; let i = index" class="ion-text-center">
+              <ion-card style="background-color: rgb(228, 251, 202); width: 100%;">
+                <ion-card-header>
+                  <ion-card-title>Puesto {{i+1}}  <br> ★</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  {{ obtenerNombreUsuario(jugador.correo) }} <br>
+                  {{jugador.tiempo}} <br>
+                  {{jugador.desdeStr}} <br>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
 
+    <ion-card style="background-color: rgb(247, 192, 246);">
+      <ion-card-header>
+        <ion-card-title>Categoria Media</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" *ngFor="let jugador of listaMejoresJugadoresMedio; let i = index" class="ion-text-center">
+              <ion-card style="background-color: rgb(228, 251, 202); width: 100%;">
+                <ion-card-header>
+                  <ion-card-title>Puesto {{i+1}}  <br> ★</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  {{ obtenerNombreUsuario(jugador.correo) }} <br>
+                  {{jugador.tiempo}} <br>
+                  {{jugador.desdeStr}} <br>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
 
-
-    </div>
-
-
-
-
+    <ion-card style="background-color: rgb(191, 213, 243);">
+      <ion-card-header>
+        <ion-card-title>Categoria Dificil</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid >
+          <ion-row>
+            <ion-col size="6" *ngFor="let jugador of listaMejoresJugadoresFacil; let i = index" class="ion-text-center">
+              <ion-card style="background-color: rgb(228, 251, 202); width: 100%;">
+                <ion-card-header>
+                  <ion-card-title>Puesto {{i+1}}  <br> ★</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  {{ obtenerNombreUsuario(jugador.correo) }} <br>
+                  {{jugador.tiempo}} <br>
+                  {{jugador.desdeStr}} <br>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
   </div>
-
 </ion-content>
-
 

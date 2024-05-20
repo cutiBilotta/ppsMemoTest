@@ -1,21 +1,19 @@
-
 <ion-content [fullscreen]="true">
-
   <div id="container" class="ion-text-center ion-text-uppercase">
-    <br><br><br><br><br>
+    <img (click)="abandonar()" style="height: 70px; width: auto; background-color: #585858; float: right; margin-top: 5px; margin-right: 5px;" src="../../assets/img/exit.png" alt="">
+    <br><br><br>
     <h1>{{dificultad}}</h1>
-    <ion-text color="danger"  class="text-center"><h2 >Tiempo - {{minutos}} : {{segundos}}</h2></ion-text>
+    <ion-text color="danger" class="text-center"><h2>Tiempo - {{minutos}} : {{segundos}}</h2></ion-text>
 
-    <div class="image-container" [ngClass]="{'media-six-images': arrayImagenes.length === 6, 'media-sixteen-images': arrayImagenes.length === 16}">
-      <div *ngFor="let imagen of arrayImagenes; let i = index" class="image-wrapper">
-        <img [src]="'../../assets/img/q.png'"
-             alt="Imagen" 
-             height="100px"
-             (click)="seleccionarImagen(imagen, i)" #imagenElemento
-             [style.pointer-events]="bloquearImagen ? 'none' : 'auto'">
-      </div>
-    </div>
-
+    <ion-grid fixed="true">
+      <ion-row>
+        <ion-col [size]="colSize" *ngFor="let imagen of arrayImagenes; let i = index" [ngStyle]="{'height': colHeight}">
+          <img [src]="'../../assets/img/q.png'"
+               style="height: 100%; width: auto;"
+               (click)="seleccionarImagen(imagen, i)" #imagenElemento
+               [style.pointer-events]="bloquearImagen ? 'none' : 'auto'">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-
 </ion-content>

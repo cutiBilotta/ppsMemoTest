@@ -30,29 +30,7 @@
    <br> 
      <div class="ion-align-items-center ion-text-center">
        <ion-button color="success" block (click)="verificarUsuarioExistente()">Ingresar</ion-button>
-       <br>  
-
-       <p>como: </p>
- 
-       <div class="ion-align-items-center ion-text-center">
-        <ion-button style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio1()">Admin</ion-button>
-        <br>  
-      </div>
-    
-      <div class="ion-align-items-center ion-text-center">
-        <ion-button style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio2()">Invitado</ion-button>
-        <br>  
-      </div>
-    
-      <div class="ion-align-items-center ion-text-center">
-        <ion-button class="ion-button-small" style="--background: rgba(24, 49, 83, 1);" block (click)="autocompletarUsurio3()">Usuario</ion-button>
-        <br>  
-      </div>
- 
-       <div *ngIf="mensaje">
-           {{mensaje}}
-       </div>
- 
+       
       </div>
    </ion-card-content>
  </ion-card>
@@ -62,6 +40,34 @@
 </div>
  <br>
  
- 
+ <ion-card style="background-color: #ccc;">
+
+  <ion-card-content style="background-color: #ddd;">
+    <ion-list >
+      <ion-item (click)="autocompletarUsuario1()">
+        <ion-thumbnail slot="start">
+          <img  style="padding: 5px;" alt="Silhouette of mountains" src="../../assets/img/admin.png" />
+        </ion-thumbnail>
+        <ion-label>Administrador</ion-label>
+      </ion-item>
+
+      <ion-item (click)="autocompletarUsuario2()">
+        <ion-thumbnail slot="start">
+          <img style="padding: 5px;" alt="Silhouette of mountains" src="../../assets/img/user.png" />
+        </ion-thumbnail>
+        <ion-label>Usuario</ion-label>
+      </ion-item>
+
+      <ion-item (click)="autocompletarUsuario3()">
+        <ion-thumbnail slot="start">
+          <img  style="padding: 5px;" alt="Silhouette of mountains" src="../../assets/img/invitado.png ">
+        </ion-thumbnail>
+        <ion-label>Invitado</ion-label>
+      </ion-item>
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
 </div>
  </ion-content>
